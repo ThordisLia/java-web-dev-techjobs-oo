@@ -1,5 +1,4 @@
 package org.launchcode.techjobs_oo;
-
 import java.util.Objects;
 
 public class Job {
@@ -18,7 +17,8 @@ public class Job {
     //  the 'id' field.
 
     public Job() {
-        this.id = id;
+        id = nextId;
+        nextId++;
     }
 
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
@@ -31,6 +31,32 @@ public class Job {
     }
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
+
+    public String toString(Job job) {
+        if (job.getName() == null || job.getName() == "") {
+            job.setName("Data not available");
+        }
+
+        if (employer.getValue() == null || employer.getValue() == "") {
+            employer.setValue("Data not available");
+        }
+
+        if (location.getValue() == null || location.getValue() == "") {
+            location.setValue("Data not available");
+        }
+
+        if (positionType.getValue() == null || positionType.getValue() == "") {
+        positionType.setValue("Data not available");
+        } 
+
+        if(coreCompetency.getValue() == null || coreCompetency.getValue() == "") {
+        coreCompetency.setValue("Data not available");
+    }
+        return  "\nID: " + job.getId() + "\nName: " + job.getName() + "\nEmployer: " +
+            "" + job.getEmployer() + "\nLocation: " + job.getLocation() + "\nPosition Type: " +
+            "" + job.getPositionType() + "\nCore Competency: " + job.getCoreCompetency() + "\n";
+
+    }
 
     @Override
     public boolean equals(Object o) {
