@@ -49,8 +49,9 @@ public class JobTest {
 
     @Test
     public void testToStringContainsBlankLineBeforeAfterJob(){
-        Assert.assertTrue(testJobThree.toString(testJobThree).contains("\nID"));
-        Assert.assertTrue(testJobThree.toString(testJobThree).contains(testJobThree.getCoreCompetency() + "\n"));
+        Assert.assertTrue(testJobThree.toString().contains("\nID"));
+        Assert.assertTrue(testJobThree.toString().contains(testJobThree.getCoreCompetency() + "\n"));
+
     }
 
     @Test
@@ -58,8 +59,7 @@ public class JobTest {
         assertEquals("\nID: " + testJobThree.getId() + "\nName: " + testJobThree.getName() + "\nEmployer: " +
                 "" + testJobThree.getEmployer() + "\nLocation: " + testJobThree.getLocation() + "\nPosition Type: " +
             "" + testJobThree.getPositionType() + "\nCore Competency: " + testJobThree.getCoreCompetency() + "\n" +
-                "", testJobThree.toString(testJobThree));
-
+                "", testJobThree.toString());
     }
 
     @Test
@@ -67,7 +67,7 @@ public class JobTest {
         assertEquals("\nID: " + testJobEmployer.getId() + "\nName: " + testJobEmployer.getName() + "\nEmployer: " +
                 "Data not available" + "\nLocation: " + testJobEmployer.getLocation() + "\nPosition Type: " +
                 "" + testJobEmployer.getPositionType() + "\nCore Competency: " + testJobEmployer.getCoreCompetency() + "\n" +
-                "", testJobEmployer.toString(testJobEmployer));
+                "", testJobEmployer.toString());
     }
 
 

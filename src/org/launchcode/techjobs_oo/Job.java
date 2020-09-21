@@ -32,31 +32,44 @@ public class Job {
 // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
-    public String toString(Job job) {
-        if (job.getName() == null || job.getName() == "") {
-            job.setName("Data not available");
+    @Override
+    public String toString() {
+        if (name == null || name == "") {
+            this.setName("Data not available");
         }
 
-        if (employer.getValue() == null || employer.getValue() == "") {
+        if (this.employer.toString() == null || this.employer.toString() == "") {
             employer.setValue("Data not available");
         }
 
-        if (location.getValue() == null || location.getValue() == "") {
+        if (this.location.toString() == null || this.location.toString() == "") {
             location.setValue("Data not available");
         }
 
-        if (positionType.getValue() == null || positionType.getValue() == "") {
+        if (this.positionType.toString() == null || this.positionType.toString() == "") {
         positionType.setValue("Data not available");
-        } 
+        }
 
-        if(coreCompetency.getValue() == null || coreCompetency.getValue() == "") {
+        if(this.coreCompetency.toString() == null || this.coreCompetency.toString() == "") {
         coreCompetency.setValue("Data not available");
-    }
-        return  "\nID: " + job.getId() + "\nName: " + job.getName() + "\nEmployer: " +
-            "" + job.getEmployer() + "\nLocation: " + job.getLocation() + "\nPosition Type: " +
-            "" + job.getPositionType() + "\nCore Competency: " + job.getCoreCompetency() + "\n";
+        }
 
+        if (this.name == "" && this.employer.toString() == "" && this.location.toString() == ""
+                && this.positionType.toString() == "" && this.coreCompetency.toString() == "") {
+            return "\nID: " + id + "\nOOPS! This job does not seem to exist.";
+
+        } else
+
+        return
+                "\nID: " + id +
+                "\nName: " + name +
+                "\nEmployer: " + employer +
+                "\nLocation: " + location +
+                "\nPosition Type: " + positionType +
+                "\nCore Competency: " + coreCompetency +
+                '\n';
     }
+
 
     @Override
     public boolean equals(Object o) {
